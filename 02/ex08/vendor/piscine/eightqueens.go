@@ -1,10 +1,27 @@
 package piscine
 
-import "fmt"
+import "ft"
 
 const N = 8
 
 var position = [N]int{}
+
+func PrintString(s string) {
+	for _, r := range s {
+		ft.PrintRune(r)
+	}
+}
+
+func PrintInt(n int) {
+	if n < 0 {
+		ft.PrintRune('-')
+		n *= -1
+	}
+	if n > 9 {
+		PrintInt(n / 10)
+	}
+	ft.PrintRune(rune(n%10) + '0')
+}
 
 func isSafe(queen_number, row_position int) bool {
 	for i := 0; i < queen_number; i++ {
@@ -20,9 +37,9 @@ func isSafe(queen_number, row_position int) bool {
 func solve(k int) {
 	if k == N {
 		for i := 0; i < N; i++ {
-			fmt.Print(position[i] + 1)
+			PrintInt(position[i] + 1)
 		}
-		fmt.Print("\n")
+		PrintString("\n")
 	} else {
 		for i := 0; i < N; i++ {
 			if isSafe(k, i) {
