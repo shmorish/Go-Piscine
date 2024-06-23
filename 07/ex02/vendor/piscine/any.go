@@ -1,0 +1,19 @@
+package piscine
+
+func IsNumeric(s string) bool {
+	for _, v := range s {
+		if v < '0' || v > '9' {
+			return false
+		}
+	}
+	return true
+}
+
+func Any(f func(string) bool, a []string) bool {
+	for _, v := range a {
+		if f(v) {
+			return true
+		}
+	}
+	return false
+}
