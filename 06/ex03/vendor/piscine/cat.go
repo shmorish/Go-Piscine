@@ -10,8 +10,16 @@ func PrintStr(s string) {
 	}
 }
 
+func VecLen(s []string) int {
+	count := 0
+	for range s {
+		count++
+	}
+	return count
+}
+
 func Cat(args []string) int {
-	if len(args) == 1 {
+	if VecLen(args) == 1 {
 		buf := make([]byte, 1024)
 		for {
 			n, err := os.Stdin.Read(buf)
@@ -21,7 +29,7 @@ func Cat(args []string) int {
 			}
 		}
 	} else {
-		for i := 1; i < len(args); i++ {
+		for i := 1; i < VecLen(args); i++ {
 			file, err := os.Open(args[i])
 			if err != nil {
 				os.Stderr.WriteString("open " + args[i] + ": no such file or directory\n")

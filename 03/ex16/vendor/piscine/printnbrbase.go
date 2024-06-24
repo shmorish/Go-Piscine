@@ -22,7 +22,7 @@ func Index(s string, toFind string) int {
 }
 
 func PrintNumBase(num int, base string) {
-	mod := len(base)
+	mod := StrLen(base)
 	i := 0
 	if num == 0 {
 		ft.PrintRune('0')
@@ -42,7 +42,7 @@ func PrintNumBase(num int, base string) {
 }
 
 func PrintNbrBase(n int, base string) {
-	if len(base) < 2 || Index(base, "+") >= 0 || Index(base, "-") >= 0 {
+	if StrLen(base) < 2 || Index(base, "+") >= 0 || Index(base, "-") >= 0 {
 		ft.PrintRune('N')
 		ft.PrintRune('V')
 		return

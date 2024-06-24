@@ -4,6 +4,14 @@ import (
 	"os"
 )
 
+func VecLen(s []string) int {
+	count := 0
+	for range s {
+		count++
+	}
+	return count
+}
+
 func CheckArgs(s string) string {
 	for _, c := range s {
 		if c < '0' || c > '9' {

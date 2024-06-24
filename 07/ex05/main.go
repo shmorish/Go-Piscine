@@ -17,7 +17,7 @@ import (
 // the output examples below.
 
 func main() {
-	if len(os.Args) != 4 {
+	if piscine.VecLen(os.Args) != 4 {
 		return
 	}
 	a, errA := piscine.Atoi(piscine.CheckArgs(os.Args[1]))
