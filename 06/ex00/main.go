@@ -29,8 +29,8 @@ func main() {
 		lengthOfArg++
 	}
 	if isEven(lengthOfArg) == true {
-		printStr("I have an even number of arguments")
+		printStr(EvenMsg)
 	} else {
-		printStr("I have an odd number of arguments")
+		printStr(OddMsg)
 	}
 }

@@ -27,18 +27,18 @@ func VecLen(s []string) int {
 const FileNotFound = "File name missing\n"
 const TooManyArguments = "Too many arguments\n"
 
-func Cat(args []string) int {
+func Ztail(args []string) {
 	if VecLen(args) == 1 {
 		PrintErr(FileNotFound)
-		return 1
+		return
 	} else if VecLen(args) >= 3 {
 		PrintErr(TooManyArguments)
-		return 1
+		return
 	}
 	file, err := os.Open(args[1])
 	if err != nil {
 		PrintErr("open " + args[1] + ": no such file or directory\n")
-		return 1
+		return
 	}
 	defer file.Close()
 	buf := []byte{0}
@@ -49,5 +49,4 @@ func Cat(args []string) int {
 		}
 		os.Stdout.Write(buf)
 	}
-	return 0
 }

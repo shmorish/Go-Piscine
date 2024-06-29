@@ -13,6 +13,8 @@ func setPoint(ptr *point) {
 
 func main() {
 	points := &point{}
+
 	setPoint(points)
+
 	fmt.Printf("x = %d, y = %d\n", points.x, points.y)
 }

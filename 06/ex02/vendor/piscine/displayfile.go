@@ -17,12 +17,12 @@ func DisplayFile(s string) {
 		return
 	}
 	defer file.Close()
-	buf := make([]byte, 1024)
+	buf := []byte{0}
 	for {
-		n, err := file.Read(buf)
-		os.Stdout.Write(buf[:n])
+		_, err := file.Read(buf)
 		if err != nil {
 			break
 		}
+		os.Stdout.Write(buf)
 	}
 }
